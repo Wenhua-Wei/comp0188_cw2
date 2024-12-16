@@ -70,6 +70,8 @@ class TrackerBalancedLoss:
         loss = 0
         _metric_value_dict = {}
 
+        print("///////////////////////////")
+
         # Debug: Check for NaNs or Infs in inputs
         for key in pred.keys():
             if torch.isnan(pred[key]).any() or torch.isinf(pred[key]).any():
