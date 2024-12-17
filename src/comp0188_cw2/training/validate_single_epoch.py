@@ -49,8 +49,13 @@ class ValidateSingleEpoch:
             will be the same keys required by the criterion. 
         """
 
-        losses = torch.tensor(0)
-        denom = torch.tensor(0)
+        if self.half_precision:
+            losses = torch.tensor(0.0, dtype=torch.float16)
+            denom = torch.tensor(0.0, dtype=torch.float16)
+        else:
+            print("This is fl32 in val !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            losses = torch.tensor(0.0, dtype=torch.float32)
+            denom = torch.tensor(0.0, dtype=torch.float32)
         if gpu:
             _device = "cuda"
         else:
