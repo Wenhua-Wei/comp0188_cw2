@@ -83,7 +83,7 @@ class TrainSingleEpoch:
         count = 1
         
         for i, vals in range_gen:
-            print("count batch: " + count)
+            print("count batch: ", count)
             input_vals = vals.input
             output_vals = vals.output
             if gpu:
