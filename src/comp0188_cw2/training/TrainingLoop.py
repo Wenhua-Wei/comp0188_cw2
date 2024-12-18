@@ -311,4 +311,8 @@ class TorchTrainingLoop:
         artifact.add_file(os.path.join(chkpnt_dh.loc, i))
         wandb.log_artifact(artifact)
       wandb.finish()
+
+      print("////////////////////Model saved dir//////////////////////")
+      print(os.listdir(chkpnt_dh.loc))
+
       return mo
