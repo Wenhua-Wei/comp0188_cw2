@@ -80,10 +80,8 @@ class TrainSingleEpoch:
             total=len(data_loader)
             #desc=f"Epoch {int(epoch)}/{epochs}",
             )
-        # count = 1
-        
+
         for i, vals in range_gen:
-            # print("count batch: ", count)
             input_vals = vals.input
             output_vals = vals.output
             if gpu:
@@ -114,8 +112,6 @@ class TrainSingleEpoch:
             denom += 1
             # losses.update(train_loss.data[0], g.size(0))
             # error_ratio.update(evaluation(output, target).data[0], g.size(0))
-
-            # count += 1
 
             try:
                 # compute gradient and do SGD step
