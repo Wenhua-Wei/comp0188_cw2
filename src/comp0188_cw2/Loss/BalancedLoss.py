@@ -46,8 +46,8 @@ class TrackerBalancedLoss:
             Dict[str:Any]: Dictionary of evaluated results. The keys will match
             those provided in the multi_loss parameter
         """
-        print(f"Prediction 'grp' shape: {pred['grp'].shape}")
-        print(f"Target 'grp' shape: {act['grp'].shape}")
+        # print(f"Prediction 'grp' shape: {pred['grp'].shape}")
+        # print(f"Target 'grp' shape: {act['grp'].shape}")
 
         loss = 0
         _metric_value_dict = {}

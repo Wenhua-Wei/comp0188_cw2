@@ -61,7 +61,7 @@ class TrainSingleEpoch:
             losses = torch.tensor(0.0, dtype=torch.float16)
             denom = torch.tensor(0.0, dtype=torch.float16)
         else:
-            print("This is fl32 in train !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            # print("This is fl32 in train !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             losses = torch.tensor(0.0, dtype=torch.float32)
             denom = torch.tensor(0.0, dtype=torch.float32)
         if gpu:
@@ -80,10 +80,10 @@ class TrainSingleEpoch:
             total=len(data_loader)
             #desc=f"Epoch {int(epoch)}/{epochs}",
             )
-        count = 1
+        # count = 1
         
         for i, vals in range_gen:
-            print("count batch: ", count)
+            # print("count batch: ", count)
             input_vals = vals.input
             output_vals = vals.output
             if gpu:
