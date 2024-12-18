@@ -115,7 +115,7 @@ class TrainSingleEpoch:
             # losses.update(train_loss.data[0], g.size(0))
             # error_ratio.update(evaluation(output, target).data[0], g.size(0))
 
-            count += 1
+            # count += 1
 
             try:
                 # compute gradient and do SGD step
