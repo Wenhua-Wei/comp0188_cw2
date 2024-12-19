@@ -84,6 +84,23 @@ class TrainSingleEpoch:
         for i, vals in range_gen:
             input_vals = vals.input
             output_vals = vals.output
+            if "images" in input_vals:
+                print("Images mean:", input_vals["images"].mean().item(), 
+                    "Images std:", input_vals["images"].std().item())
+            if "obs" in input_vals:
+                print("Obs min:", input_vals["obs"].min().item(),
+                    "Obs max:", input_vals["obs"].max().item(),
+                    "Obs mean:", input_vals["obs"].mean().item(),
+                    "Obs std:", input_vals["obs"].std().item())
+                
+            if "pos" in output_vals:
+                print("Pos min:", output_vals["pos"].min().item(),
+                    "Pos max:", output_vals["pos"].max().item(),
+                    "Pos mean:", output_vals["pos"].mean().item(),
+                    "Pos std:", output_vals["pos"].std().item())
+            if "grp" in output_vals:
+               print("Grp unique classes:", output_vals["grp"].unique())
+
             if gpu:
                 input_vals = {
                     val:input_vals[val].cuda() for val in input_vals
