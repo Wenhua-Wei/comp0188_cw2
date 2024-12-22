@@ -58,10 +58,18 @@ class TrackerBalancedLoss:
                 "value":_loss
             }
             loss += _loss
+
+            loss_name = f"{key}_{self.name}_loss"
+            print()
+            print("pos/grp loss stored")
+            print(f"{loss_name}: {_loss.item()}")
+
         if self.mo is not None:
             self.mo.update_metrics(metric_value_dict=_metric_value_dict)
         out_loss = torch.mean(loss)
         self.__step += 1
+        print()
+        print("out_loss: ", out_loss)
         return out_loss
 
     # def __call__(
