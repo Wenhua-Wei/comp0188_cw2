@@ -130,8 +130,15 @@ def train(
         # if scheduler:
         #     scheduler.step()
 
+        # if scheduler:
+        #     scheduler.step(epoch_val_loss)
+
         if scheduler:
-            scheduler.step(epoch_val_loss)
+            old_lr = optimizer.param_groups[0]['lr']
+            scheduler.step(epoch_val_loss)  # pass in your validation loss
+            new_lr = optimizer.param_groups[0]['lr']
+            if new_lr < old_lr:
+                logger.info(f"Learning rate reduced from {old_lr:.6f} to {new_lr:.6f}")
 
         chkp_pth = os.path.join(save_dir, "mdl_chkpnt_epoch_{}.pt".format(
             epoch))
