@@ -127,8 +127,11 @@ def train(
                             "value":epoch_val_loss}
         })
 
+        # if scheduler:
+        #     scheduler.step()
+
         if scheduler:
-            scheduler.step()
+            scheduler.step(epoch_val_loss)
 
         chkp_pth = os.path.join(save_dir, "mdl_chkpnt_epoch_{}.pt".format(
             epoch))
